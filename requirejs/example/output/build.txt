@@ -1,0 +1,13 @@
+
+js/main.js
+----------------
+js/Person.js
+js/Employee.js
+js/Manager.js
+/Users/jmorrin/Dropbox/presentations/requirejs/example/requirejs/require/text.js
+require/text!template.html
+/Users/jmorrin/Dropbox/presentations/requirejs/example/requirejs/require/order.js
+js/thirdparty/jquery/jquery-1.5.js
+js/thirdparty/jquery-tmpl/jquery.tmpl.js
+js/View.js
+js/main.js

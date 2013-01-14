@@ -1,0 +1,537 @@
+<!doctype html>
+<html>
+	<head>
+	  <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+		<title>RequireJS Notes</title>
+		<script src="jquery-1.4.2.js" type="text/javascript" charset="utf-8"></script>
+		<script src="scrollable.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" language="javascript" charset="utf-8">
+
+			function updateClock (startTime) {
+				var secs = Math.floor((new Date() - startTime) *.001);
+				var hours = Math.floor(secs / (60 * 60));
+   
+    		var divisor_for_minutes = secs % (60 * 60);
+    		var minutes = Math.floor(divisor_for_minutes / 60);
+ 
+    		var divisor_for_seconds = divisor_for_minutes % 60;
+    		var seconds = Math.ceil(divisor_for_seconds);
+				
+				// Pad the minutes and seconds with leading zeros, if required
+				hours = (hours  < 10 ? "0" : "" ) + hours;
+				minutes = (minutes  < 10 ? "0" : "" ) + minutes;
+				seconds = (seconds  < 10 ? "0" : "" ) + seconds;
+				
+				var displayString = hours + ':' + minutes + ':' + seconds;
+
+				$('#time span').text(displayString);
+			}
+			
+			
+			$(function(){
+					
+					var scroller, slides, currentSlide=1, startTime, presentationWindow;
+					slides = $('#items div').length;
+					$('#container').scrollable({ mousewheel: false});
+					scroller = $('#container').data("scrollable");
+				
+					$('#startPresentation').bind('click',function(){
+						startTime = new Date();	
+						updateClock(startTime);	
+						setInterval(function(){
+							updateClock(startTime);		
+							}, 1000);	
+
+					});
+
+					$('#openSlide').bind('click', function(){
+							if(!presentationWindow) {
+								presentationWindow = window.open('slides.html', 'Presentation Notes');
+							}
+					});
+					
+					scroller.onSeek(function() {
+						if(presentationWindow ) {
+							presentationWindow.postMessage({slideNum: this.getIndex()+1}, '*');
+						}	
+					});
+					
+
+					
+					
+			});
+		</script>
+		<style type="text/css" media="screen">
+			body{
+				background-color: #6B7074;
+			}
+
+			 #items div{
+				height: 350px;
+				width: 550px;
+				padding: 25px;
+				margin: 10px 10px 10px 0;
+				border: 3px solid black;
+				border-radius: 10px;
+				background-color: white;
+				float:left;
+			}
+
+			#wrapper {
+				width: 610px;
+				margin: 0 auto;
+
+			}
+
+			#container{
+				position:relative;
+				overflow:hidden;
+
+				height: 420px;
+				width: 610px;
+				
+			}
+
+			#items {
+				position:absolute;
+				width:20000em;	
+			}
+
+			#controls {
+				width: 420px;
+				margin: 0 0 10px 0;
+			}
+			
+			#time{
+				margin-left: 100px; 
+				width: 200px;
+				display:inline;
+			}
+
+		</style>
+	</head>
+	<body>
+		<div id="wrapper">
+		<div id="controls">
+			<input type="button" name="" value="Open Slides" id="openSlide"/>
+			<input type="button" name="" value="Start" id="startPresentation"/>
+			<div id="time">
+				Presentation Time: <span></span>
+			</div>	
+		</div>
+		<div id="container">
+			<div id="items">
+				<div id="slide-1">
+					<ul>
+						<li>About me</li>
+						<li>A little about stoplift</li>
+						<li>A little about the user management page</li>
+						<li>About the web reviewer</li>
+					</ul>
+				</div>
+
+				<div id="slide-2">
+					<ul>
+						<li>RequireJS is written by James Burke. James has done a lot of work on the Dojo loader.</li> 
+
+						<li>Dojo is moving to the module format supported by require</li>	
+						<li>You can currently load dojo 1.6 core and diijit packages</li>
+						<li>Require is used in the BBC iplayer application</li>
+						<li>BazaarVoice also uses requirejs</li>
+					</ul>
+				</div>
+
+				<div id="slide-2">
+					<ul>
+						<li>why??</li>
+
+						<li>Building large single page javascript applications can be frustrating.</li>
+
+						<li>Code is hard to organize and managing nested dependencies is difficult.</li>
+
+						<li>We want to keep the global scope as clean as possible.</li> 
+
+						</li>
+						<li>In development we want well organzied easy to read code/in production we want compressed and optimized code.</li> 
+					</ul>
+				</div>
+
+				<div id="slide-2">
+					<ul>
+						<li>Y u no load files!</li>
+
+						<li>Scripts should load asynchronously and in parallel.</li> 
+
+						<li>....</li>
+					</ul>
+				</div>
+
+
+				<div id="slide-3">
+					<ul>
+					<li>Our client side code is starting to grow increasingly more complex. We are quickly
+					moving from  Web Sites towards Web applications. This requires (pun intended) some sort of 
+					application	structure or architecture. Assembly of these applications gets more difficult 
+					as we start	to modularize our code. And in production we want to deliver optimized code in 
+					as few HTTP requests as possible. This is where requirejs comes in. 
+					</li>
+					<li>
+					Javascript lacks some sort of include/import/require statement. We need a tool that allows 
+					for the ablity to load nested dependencies.
+					</li>
+
+					<li>
+					Keep your code more simple and modular to help promote testability and reusability. Follows the 
+					CommonJS syntax which we hope should become more common over time and we can reuse our code. 
+					RequireJS does not follow CommonJS module loading to the letter due to the fact that CommonJS
+					require is a synchronus call which does not work well in the browser environment. 	
+					</li>
+					<li>
+note: RequireJS supports the
+Asynchronous Module Definition API proposal on the CommonJS wiki.
+There are other loaders that also implement it, curl (by John Hann)
+and the backdraft loader (by Rawld Gill), and that AMD API is
+available for use in Mozilla Jetpack extensions. While the CommonJS
+groups has not agreed yet to fully endorse AMD as an official spec, it
+has a good ecosystem around it already.
+						
+					</li>
+				</ul>
+				</div>
+
+				<div id="slide-4">
+					<ul>
+						<li>
+						Some people say, "I heard that require js "reqiures" a special version of jquery! That sucks dude!"
+					</li>
+					<li>
+					Its true that there is a special build of requirejs that has a modified version of jquery added
+					but you can just load jquery like any other javascript file. There is no need to wrap it into
+					the module format used by requirejs. The special build of require with jquery allows you to be
+					assured that jquery is loaded before any plugins are dynamically loaded. This will help you 
+					avoid the use of the order plugin.
+					</li>
+				</ul>
+					
+				</div>
+
+
+				<div id="slide-5">
+					<ul>
+					<li>
+					A module well define a well-scoped object that does not pollute the global namespace.
+								The module will list its dependencies and get a handle to those dependencies without 
+								the use of global objects. The dependencies will be be recieved by the module through 
+								arguments to the function that defines the module.</li>
+								<li>
+								Modules that create global objects are discouraged and should be avoided. 	
+								</li>
+								<li>
+								RequireJS modules are an extension to the module pattern without the need for global
+								variables to refer to other modules. 	
+								</li>
+								<li>
+								RequireJS will try to load modules as fast as possible. This means that order can not be 
+								guaranteed
+								</li>
+								<li>
+								RequireJS follows the CommonJS module format. So you could potentially reuse some of 
+								your client code on the server using nodejs.
+								</li>
+								<li>
+								There should be one module definition per file on disk. Multiple files can be bundles 
+								for production using the optimization tool.
+								</li>
+								<li>
+								Let explore some of the different module types and the uses of each.
+								</li>
+							</ul>
+					</p>
+				</div>
+			
+				<div id="slide-7">
+					<ul>
+						<li>
+						If you have a very simple object that does not have any dependencies you
+						can just pass the object literal to the call to define.</li> 
+
+						<li>I personally use this for my application config files. I find it handy to
+								define a configuration file for my app which holds things like web service
+								URLS and other or log level information which can be handy to change on the 
+								fly without rebuilding the entire application.</li>
+
+							</ul>
+				</div>
+				
+				<div id="slide-8">
+					<ul>
+					<li>
+							Let say you have a module that has no dependency but needs to do a little setup work. 
+								You can pass a function to the define method and it will execute your setup function 
+								when the module is required.</li> 	
+
+					</ul>
+				</div>
+
+
+
+				<div id="slide-9">
+					<ul>
+						<li>
+						Finally we get to something which isnt so trival. If your module has dependecies, 
+							the first argument should be an array of the dependency names and the second should
+							be the definition function. Your definiiton function will be called once all of the 
+							dependencies are loaded. The function should return an object that defines your module. 
+							The dependencies will be passed into your function as arguments.
+						</li>
+						<li>
+							In this example we see that this module has two dependencies. They are stored on disk like this	
+						</li>
+					</ul>
+				</div>
+
+				<div id="slide-10">
+					<ul>
+					<li>
+						A module could also be used to return a function
+						</li>
+					</ul>
+				</div>
+
+				<div>
+					<ul>
+						<li>
+						no notes
+						</li>
+					</ul>
+				</div>	
+
+				<div id="slide-11">
+					<ul>
+					<li>
+						This is an example of how we can configure requirejs. This example does not contain all of 
+							the options avaiable but it does have some of the options which I find you will more commonly
+							use. 
+							</li>
+							<li>
+							BaseUrl: this defines the path to the directories which hold your modules. If you do not define 
+							this option modules will be loaded relative to the html page that loaded require.
+							</li>
+							<li>
+							Paths: I believe paths to be the most beneficial of all of the configuration options. This is
+							where I normally give all of my thirdparty scripts a nice easy to remember name. Also in 
+							development I can use the uncompressed versions of these scripts to aid in debugging and 
+							development. Also if the version number of the script changes I can easily swap in the new
+							version and test without having to touch all of my modules. 
+							</li>
+							<li>
+							You can also define a timeout period for loading scripts the default timeout is 7 seconds. 
+							</li>
+							<li>
+							You can also set a ready function which will be called once require is defined.
+							</li>
+
+					</ul>
+			
+				</div>
+				<div>
+					<p>
+						no notes
+					</p>
+				</div>
+
+
+				<div>
+					<ul>
+						<li>Personally I like to include the require conf script seperately on the page. 
+
+						</li>
+						<li>
+							This does increase the script request but i like the flexibility to swap out my
+							thirdparty scripts without rebuilding the entire application.  
+							</li>
+							<li>
+By using this approach, you can target the optimizer to optimize
+main.js, and your HTML does not have to change after the build, and
+you can get to just one script request after require.js is loaded.
+								
+							</li>
+					</ul>
+				</div>
+
+
+
+				<div id="slide-12">
+					<ul>
+					<li>
+					Once you start to use modules you can start to think at a higher level and come up with 
+							strategy to handle some common situations gracefully. 
+							</li>
+							<li>
+							Once example is to create application layers which can be loaded on demand. For example
+							There may be a set of modules that you know most of your application will depend on. So you 
+							could create a module which will require these when the page loads. And then only loaded other
+							modules on depand as the user starts to use your application. This will help you application load
+							faster and keep the user from downloading code they may never use. 
+							</li>
+					</ul>
+
+				</div>
+
+				<div id="slide-13">
+					<ul>
+					<li>
+						Okay you get modules and you understand that modules are not loaded in any particular order. 
+						But some of your thirdparty scripts require things be loaded in order. What do you do?
+						Thats where plugins come in!
+						</li>
+					</ul>
+				</div>
+
+				<div id="slide-14">
+					<ul>
+						<li>
+						RequireJS does have a plugin api. But I am not going to cover the api in this talk. I am 
+							going to discuss the plugins that come with the requirejs bundle and how you can use them 
+							to solve some common problems you may encounter building your application.
+							</li>
+							<li>
+A future version of RequireJS may have the text, order and i18n
+plugins broken out as separate projects, but there will be an easy way
+to get them.
+								
+							</li>
+						</ul>
+				</div>
+
+
+				<div id="slide-15">
+					<ul>
+					<li>
+						Although you can get a version of requirejs with jquery built in personally I do not want 
+							to use that version of requirejs. 
+							</li>
+							<li>
+							I'd rather be able to pick and choose my version of jquery and not have to worry about 
+							when the new version will be added to requirejs.
+							</li>
+							<li>
+							So I use the order plugin quite a bit in my applications.
+							</li>
+
+					</ul>
+				</div>
+
+				<div id="slide-16">
+					<ul>
+					<li>
+					This is another of my favorite plugins. This one allows you to load a text file as a dependency. 
+						This comes in really handy for templates! I can define my templates in an HTML file and then 
+						just make my module list it as a dependency and I will get the string passed into my module 
+						definiition. 
+						</li>
+						<li>
+						The string from the text file can be inlined during optimization if you are worried about additional 
+						requests back to the server for your templates.
+						</li>
+					</ul>
+				</div>
+
+				<div id="slide-16">
+					<ul>
+					<li>
+					notes...						</li>
+						<li>
+					example...						</li>
+					</ul>
+				</div>
+
+
+				<div id="slide-17">
+					<ul>
+					<li>
+						Now lets talk about the build system. Although modules and all these module definition files 
+						are great for development. They would be a nightmare in production, where you want as few 
+						requests as possible when loading your application. So this is where the build system comes
+						into play. 
+						</li>
+						<li>
+						Once you have your application build and tested you can then go on to define a build configuration and  run the build script to minify your code and combine your scripts. 
+						</li>
+						<li>
+						Will also remove comments from your css and inline any styles sheets referenced using @import
+						</li>
+						<li>
+						The build system currently uses Rhino but there has been a lot of development around getting the build system to use nodejs. If you work off of the master branch on github you can start to experiment if the build system that uses node. 
+						</li>
+						<li>
+						Also the build system currently uses closure compiler to minify and conpress the javascript files. But again there is work on the master branch which uses UglifyJS. 
+						</li>
+						<li>
+						The nodejs builds are extremely fast according to the author James Burke, a java build which takes 5-6 seconds will take less than 1 second in node. James Burke is quoted as saying "Node is so fast it makes me cry tears of joy!"
+						</li>
+						<li>
+RequireJS 0.23 now ships with optimizer using Node by default.
+Running on Rhino is still available though since Node on Windows is
+still a bit painful to set up. Similarly, UglifyJS is now the default
+minifier, with closure compiler an option when running under Rhino.
+They can always minify themselves with their favorite minifier after
+the RequireJS optimizer optimizes the code.
+	
+						</li>
+
+					</ul>
+				</div>	
+
+				
+
+				<div id="slide-18">
+					<ul>
+					<li>
+						This is an example build file. It configures the build tool with the location of the code to optimize. 
+						</li>
+						<li>
+						AppDir is the location of you application relative to the build scripts. 
+						</li>
+						<li>
+						baseUrl is the base url of your modules. Should be relative to appdir
+						</li>
+						<li>
+						dir: is where the build tool will stage the output from the build process. Pleas make sure this isnt the same directory as your application!
+						</li>
+						<li>
+						Modules is where you specify which modules the build too should optimize. The build tool will search and optimize all of the dependecies in your module. 
+						</li>
+						<li>
+						The build script will also optimize any CSS it finds in your app directory
+						</li>
+						<li>
+						Once the build is complete you can check the output directory for your optimized code. 
+						</li>
+						<li>
+						There are many more configuration options. But Ijust wanted to touch on the most important here. 
+						</li>
+						<li>
+
+						../../requirejs/build/build.sh build.js
+						</li>
+
+					</ul>
+				</div>
+
+				<div id="slide-19">
+					<p>
+						Additional advanced features. 
+
+					</p>
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+
+		
+	</body>
+
+</html>

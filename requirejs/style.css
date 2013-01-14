@@ -1,0 +1,145 @@
+div.example {
+        display: block;
+        padding: 10px 20px;
+        color: black;
+        background: rgba(255, 255, 255, 0.4);
+        -webkit-border-radius: 8px;
+        -khtml-border-radius: 8px;
+        -moz-border-radius: 8px;
+        border-radius: 8px;
+        margin-bottom: 10px;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+      }
+      
+      video {
+        -moz-border-radius: 8px;
+        -khtml-border-radius: 8px;
+        -webkit-border-radius: 8px;
+        border-radius: 8px;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+      }
+      .css, .js, .html {
+	font-family: 'Anonymous Consolas';
+	font-size: 36px;
+	line-height:42px;
+      }
+      td {
+	vertical-align:top;
+      }
+
+
+
+.gutter {
+	font-family: 'Anonymous Consolas';
+	font-size: 36px;
+	padding:0 4px;
+	border-right:1px solid #333333;
+      }
+      td.code {
+	padding-left:4px;
+      }
+      .syntaxhighlighter {
+		padding:15px 0 14px;
+		margin:5px 0;
+		box-shadow: rgba(0, 0, 0, 0.8) 0 0 5px;
+        -webkit-box-shadow: rgba(0, 0, 0, 0.8) 0 0 5px;
+        -moz-box-shadow: rgba(0, 0, 0, 0.8) 0 0 5px;
+        -o-box-shadow: rgba(0, 0, 0, 0.8) 0 0 5px;
+      }
+      .gutter .line {
+	color:#555555;
+	font-size:24px;
+	padding-top:4px;
+	line-height:38px;
+	vertical-align:middle;
+      }
+
+.smallerCode .js {
+	font-size: 24px;
+	line-height:32px;
+}
+.smallerCode .gutter .line {
+	font-size:16px;
+	line-height:28px;
+}
+      /*
+      .css,
+      .js,
+      .html,
+      .key {
+        font-family: 'Droid Sans';
+        color: black;
+        display: inline-block;
+        padding: 6px 10px 3px 10px;
+        font-size: 25px;
+        line-height: 30px;
+        text-shadow: none;
+        letter-spacing: 0;
+        bottom: 10px;
+        position: relative;
+        -moz-border-radius: 10px;
+        -khtml-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+        background: white;
+        box-shadow: rgba(0, 0, 0, 0.1) 0 2px 5px;
+        -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 2px 5px;
+        -moz-box-shadow: rgba(0, 0, 0, 0.1) 0 2px 5px;
+        -o-box-shadow: rgba(0, 0, 0, 0.1) 0 2px 5px;
+      }
+      
+      .key { font-family: Arial; }
+      
+      :not(header) > .css,
+      :not(header) > .js,
+      :not(header) > .html,
+      :not(header) > .key {
+        margin: 0 5px;
+        bottom: 4px;
+      }
+      
+      .css {
+        background: -webkit-gradient(linear, left top, left bottom, from(#ff4), to(#ffa));
+        background-color: #ff4;
+        background: -moz-linear-gradient(left top, #ff4, #ffa);
+      }
+
+      .js {
+        background: -webkit-gradient(linear, left top, left bottom, from(#4f4), to(#afa));
+        background-color: #4f4;
+        background: -moz-linear-gradient(left top, #4f4, #afa);
+      }
+      .html {
+        background: -webkit-gradient(linear, left top, left bottom, from(#e88), to(#fee));
+        background-color: #e88;
+        background: -moz-linear-gradient(left top, #e88, #fee);
+      }*/
+     .js2 {
+        background: -webkit-gradient(linear, left top, left bottom, from(#4f4), to(#afa));
+        background-color: #4f4;
+        background: -moz-linear-gradient(left top, #4f4, #afa);
+      }
+    
+      .two-column {
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+        column-count: 2;
+      }
+      
+      .summary li::before, .bullets li::before {
+        content: 'Â· ';
+      }
+ 
+      .stroke {
+        -webkit-text-stroke-color: red;
+        -webkit-text-stroke-width: 1px;
+      } /* currently webkit-only */
+      
+      .center {
+        text-align: center;
+      }
+      
+      .formula {
+        font-size: 50px;
+      }
+

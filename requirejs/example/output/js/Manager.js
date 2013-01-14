@@ -1,0 +1,1 @@
+define(["Employee"],function(a){function b(){this.jobTitle="Boss",this.numEmployees=99}b.prototype=new a;return b})

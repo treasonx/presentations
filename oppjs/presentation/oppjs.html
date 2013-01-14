@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->  <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+  <title> OPPJS - Yeah you know me!</title>
+
+	
+	<meta name="description" content="A jQuery library for modern HTML presentations">
+	<meta name="author" content="Caleb Troughton">
+	<meta name="viewport" content="width=1024, user-scalable=no">
+	
+	<!-- Core and extension CSS files -->
+	<link rel="stylesheet" href="../core/deck.core.css">
+	<link rel="stylesheet" href="../extensions/goto/deck.goto.css">
+	<link rel="stylesheet" href="../extensions/menu/deck.menu.css">
+	<link rel="stylesheet" href="../extensions/navigation/deck.navigation.css">
+	<link rel="stylesheet" href="../extensions/status/deck.status.css">
+	<link rel="stylesheet" href="../extensions/hash/deck.hash.css">
+	<link rel="stylesheet" href="../extensions/scale/deck.scale.css">
+	
+	<!-- Style theme. More available in /themes/style/ or create your own. -->
+	<link rel="stylesheet" href="../themes/style/neon.css">
+	
+	<!-- Transition theme. More available in /themes/transition/ or create your own. -->
+	<link rel="stylesheet" href="../themes/transition/vertical-slide.css">
+	
+	<script src="../modernizr.custom.js"></script>
+</head>
+
+<body class="deck-container">
+
+<!-- Begin slides -->
+<section class="slide" id="title-slide">
+	<h2>OPPJS - OPP Yeah You Know Me!</h2>
+  <h5>Other People's Pages</h5>
+  <img src="opphat.jpg">
+  <p style="float:left;">James Morrin @treasonx</p>
+  <p style="float:right;">3PJS or Thirdparty JavaScript</p>
+</section>
+
+<section class="slide" id="whatisoppjs">
+	<h2>What Is OPPJS</h2>
+	<ol>
+		<li>
+			<h3>Thirdparty JavaScript Or 3PJS</h3>
+			<p>Your app runs on pages you have no control over.</p>
+		</li>
+		<li>
+			<h3>Installation Is Simple</h3>
+			<p>Users Just Add A Script Tag!</p>
+		</li>
+		<li>
+			<h3>Companies Using OPPJS</h3>
+      <p>Disqus, Olark, Swoop</p>
+		</li>
+	</ol>
+</section>
+
+<section class="slide" id="oppjs-challenges">
+	<h2>Challeges</h2>
+  <p>OPPJS is not as <code>simple</code> as normal JavaScript Development</p>
+  <ul>
+    <li class="slide" id="oppjs-challenges-nocontrol">
+      You have <strong>no control</strong> over how the host page is written or served!
+    </li>
+    <li class="slide" id="oppjs-challenges-crossdomain">
+      You are <strong>never</strong> on the same domain!
+    </li>
+    <li class="slide" id="oppjs-challenges-otheropp">
+      There are other Thirdparty script on the page. <strong>They usually suck!</strong>
+    </li>
+    <li class="slide" id="oppjs-challenges-testing">
+      It's impossible to <strong>test</strong> everything before going to production.
+    </li>
+  </ul>
+</section>
+
+<section class="slide" id="oppjs-dev-goals">
+	<h2>OPPJS Dev Goals</h2>
+	<p>The world of the OPPJS dev is hostile and ugly. The OPPJS dev should not contribute to the ugliness! </p>
+  <ol>
+    <li class="slide" id="oppjs-dev-goal1">
+      Isolate your code. Do not leak / create globals!
+    </li>
+    <li class="slide" id="oppjs-dev-goal2">
+      Do not modify your environment!
+    </li>
+    <li class="slide" id="oppjs-dev-goal3">
+      Do not hog the JavaScript thread. Async Everything!
+    </li>
+    <li class="slide" id="oppjs-dev-goal4">
+      Never Break the Host Page!
+    </li>
+    <li class="slide" id="oppjs-dev-goal5">
+      If you fail, fail silently and leave no trace.
+    </li>
+  </ol>
+
+    <img class="slide" id="oppjs-dev-goal6"  src="good.jpg">
+</section>
+
+<section class="slide" id="oppjs-wat">
+	<h2>WAT! Really?!</h2>
+  <p>You will encounter some <code>crazy</code> bugs caused by "modifications" on the host page.</p>
+	
+	<ul>
+		<li class="slide" id="oppjs-wat-1">
+      <strong>JSON.stringify</strong> always returns null. <code>#WAT</code>
+		</li>
+		
+		<li class="slide" id="oppjs-wat-2">
+      <strong>Date.prototype.getTime</strong> returns "Tuesday". <code>#WAT</code>
+		</li>
+
+    <li class="slide" id="oppjs-wat-3">
+      This sort of thing is common. <code>True Story Bro</code>
+    </li>
+
+
+	</ul>
+
+      <img class="slide" id="oppjs-wat-why"  src="ohgod.jpg">
+	
+</section>
+
+<section class="slide" id="oppjs-survive">
+	<h2>How To Survive!</h2>
+	<p>With so many crazy things that could happen, how do you survive?</p>
+
+  <ul style="float:left">
+    <li>Analytics</li>
+    <li>Isolation</li>
+    <li>Defensive Coding</li>
+    <li>Detect Insane Environments!</li>
+    <li>Test EVERYTHING!</li>
+    <li>Be Better Than The Rest</li>
+  </ul>
+  <img style="float:right" src="challenge.jpg">
+  <br style="clear:both;">
+</section>
+
+<section class="slide" id="oppjs-tooling">
+	<h2>OPPJS Tooling</h2>
+  <p>With the odds stacked against you and the need to iterate quickly you need a set of tools to help protect you from your own errors and keep your code quality as high as possible.</p>
+  <h3 style="color:#AF0"> Build / Testing Tools </h3>
+  <br>
+  <h3 style="color:#AF0"> Client Side Tools </h3>
+</section>
+
+<section class="slide" id="oppjs-buildtools">
+	<h2>Build / Testing Tools</h2>
+  <ul>
+    <li class="slide" id="oppjs-buildtools-nodejs">
+      NodeJS
+    </li>
+
+    <li class="slide" id="oppjs-buildtools-grunt">
+      Grunt
+    </li>
+
+    <li class="slide" id="oppjs-buildtools-jasmine">
+      Jasmine BDD
+    </li>
+
+    <li class="slide" id="oppjs-buildtools-phantomjs">
+      PhantomJS
+    </li>
+
+    <li class="slide" id="oppjs-buildtools-jshint">
+      JSHint
+    </li>
+
+    <li class="slide" id="oppjs-buildtools-uglify">
+      UglifyJS
+    </li>
+
+    <li class="slide" id="oppjs-buildtools-sass">
+      SASS
+    </li>
+
+  </ul>
+</section>
+
+<section class="slide" id="oppjs-clienttools">
+	<h2>Client Tools</h2>
+  <ul>
+    <li class="slide" id="oppjs-clienttools-easyxdm">
+      EasyXDM
+    </li>
+
+    <li class="slide" id="oppjs-clienttools-knockout">
+      KnockoutJS
+    </li>
+
+    <li class="slide" id="oppjs-clienttools-jquery">
+      jQuery
+    </li>
+
+    <li class="slide" id="oppjs-clienttools-amd">
+      AMD - RequireJS
+    </li>
+  </ul>
+</section>
+
+<section class="slide" id="oppjs-joinme">
+	<h2>Interested in OPPJS Development?</h2>
+  <img src="swoop.png">
+	
+</section>
+
+<!-- deck.navigation snippet -->
+<a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+<a href="#" class="deck-next-link" title="Next">&#8594;</a>
+
+<!-- deck.status snippet -->
+<p class="deck-status">
+	<span class="deck-status-current"></span>
+	/
+	<span class="deck-status-total"></span>
+</p>
+
+<!-- deck.goto snippet -->
+<form action="." method="get" class="goto-form">
+	<label for="goto-slide">Go to slide:</label>
+	<input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+	<datalist id="goto-datalist"></datalist>
+	<input type="submit" value="Go">
+</form>
+
+<!-- deck.hash snippet -->
+<a href="." title="Permalink to this slide" class="deck-permalink">#</a>
+
+
+<!-- Grab CDN jQuery, with a protocol relative URL; fall back to local if offline -->
+<script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+<script>window.jQuery || document.write('<script src="../jquery-1.7.min.js"><\/script>')</script>
+
+<!-- Deck Core and extensions -->
+<script src="../core/deck.core.js"></script>
+<script src="../extensions/hash/deck.hash.js"></script>
+<script src="../extensions/menu/deck.menu.js"></script>
+<script src="../extensions/goto/deck.goto.js"></script>
+<script src="../extensions/status/deck.status.js"></script>
+<script src="../extensions/navigation/deck.navigation.js"></script>
+<script src="../extensions/scale/deck.scale.js"></script>
+
+<!-- Initialize the deck -->
+<script>
+$(function() {
+	$.deck('.slide');
+});
+</script>
+
+</body>
+</html>

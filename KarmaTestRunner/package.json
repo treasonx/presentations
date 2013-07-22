@@ -1,0 +1,15 @@
+{
+  "name": "KarmaTestRunner",
+  "version": "0.0.0",
+  "description": "Intro Talk for Karma Test Runner",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "",
+  "author": "James Morrin",
+  "license": "BSD",
+  "dependencies": {
+    "grunt-markdown": "~0.3.0"
+  }
+}

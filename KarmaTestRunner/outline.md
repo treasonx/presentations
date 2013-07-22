@@ -1,9 +1,9 @@
 
 #Testing with the Karma Test Runner
 
-## Intro / Demo
-
 ## What is Karma
+
+## Intro / Demo
 
 ## How Does Karma Work
   - explain karma server
@@ -32,7 +32,6 @@
   - Autorun
   - debug
   - PhantomJS
-
 
 ## CI integration
 

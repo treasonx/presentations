@@ -1,5 +1,7 @@
 module.exports = function(grunt) {
   'use strict';
+  var _ = require('lodash');
+
   grunt.initConfig({
     markdown: {
       slides:{

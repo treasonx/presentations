@@ -34,5 +34,14 @@
   - PhantomJS
 
 ## CI integration
+  
+  - jenkins
+  - travis
 
 ## Code Coverage
+
+  - keeps you honest
+  - maintains the broken windows
+
+
+

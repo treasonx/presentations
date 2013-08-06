@@ -1,7 +1,4 @@
-#How Does It Work?
+##How Does It Work?
 
-  - driver page
-  - iframe 
-  - capture test output
-
+![server configuration](assets/KarmaServer.png)
 

@@ -4,6 +4,15 @@ module.exports = function(grunt) {
   var fs = require('fs');
 
   grunt.initConfig({
+    watch: {
+      slides: {
+        files: ['slides/*.md'],
+        tasks: [
+          'markdown:slides',
+          'present:build'
+        ]
+      }
+    },
     markdown: {
       slides:{
         files: [{

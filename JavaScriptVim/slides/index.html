@@ -1,0 +1,254 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>VIM Workflow</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=792, user-scalable=no">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<link rel="stylesheet" href="shower/themes/ribbon/styles/screen.css">
+</head>
+<body class="list">
+	<header class="caption">
+		<h1>VIM Workflow</h1>
+		<p>James Morrin</p>
+	</header>
+	<section class="slide cover" id="Cover">
+		<h2>Vim Workflow</h2>
+		<p>James Morrin @treasonx</p>
+		<img src="pictures/profile.jpg" alt="">
+		<!--
+			To apply styles to the certain slides
+			set slide ID to get needed elements
+			-->
+		<style>
+      #Cover img {
+        border-radius: 100px;
+        width: 200px;
+        margin: 20px auto 0 auto;
+        display: block;
+        position: static;
+      }
+			#Cover h2 {
+				margin:30px 0 0;
+				color:#FFF;
+				text-align:center;
+				font-size:70px;
+				}
+			#Cover p {
+				margin:10px 0 0;
+				text-align:center;
+				color:#FFF;
+				font-style:italic;
+				font-size:20px;
+				}
+				#Cover p a {
+					color:#FFF;
+					}
+		</style>
+	</section>
+	<section class="slide"><div>
+    <style>
+      #warning {
+        color:red;
+      }
+    </style>
+    <h2 id="warning">WARNING!!</h2>
+		<ul>
+			<li class="next">I &lt;3 tmux, terminal, portable environments!</li>
+      <li class="next">But...</li>
+			<li class="next">I use the mouse...</li>
+			<li class="next">A lot.........</li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Don't Judge Me!</h2>
+		<h2 class="next">You don't know me!!</h2>
+		<h2 class="next">You don't know my struggles!!</h2>
+	</div></section>
+	<section class="slide"><div>
+		<h2>The VIM JS Workflow</h2>
+    <ul>
+      <li>Tools</li>
+      <li>Plugin</li>
+    </ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>LOL JavaScript</h2>
+    <img src="pictures/crazy.gif">
+    <h3>you so crazy....</h3>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Plugins</h2>
+    <ul>
+      <li>Tern.js</li>
+      <li>snipmate</li>
+      <li>ctrl-p</li>
+      <li>syntastic</li>
+		</ul>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Tern.js</h2>
+		<p>The stand alone code analysis engine for JavaScript.</p>
+		<p>Can be used in NodeJS, Browser, or as an Editor plugin.</p>
+	</div></section>
+	<section class="slide"><div>
+    <h2>How Does it Work?</h2>
+    <div class="next">
+      <h3>Magic</h3>
+      <img src="pictures/magic.gif">
+    </div>
+    <p class="next">Parsing AST, partial execution, module patterns</p>
+
+	</div></section>
+	<section class="slide shout"><div>
+		<h2>TERN</h2>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Project Configuration</h2>
+    <p>.tern-project</p>
+	</div></section>
+	<section class="slide"><div>
+    <pre>
+    <code>{</code>
+    <code>  "libs": ["browser", "jquery"],</code>
+    <code>  "loadEagerly": "main.js",</code>
+    <code>  "plugins": {</code>
+    <code>    "requirejs": {</code>
+    <code>    "baseURL": "./",</code>
+    <code>    "paths": {}</code>
+    <code>    }</code>
+    <code>  }</code>
+    <code>}</code>
+    </pre>
+	</div></section>
+	<section class="slide"><div>
+    <h2>SnipMate</h2>
+    <ul>
+      <li>Auto Complete Code Snippets</li>
+      <li>Code Snippets Templates</li>
+      <li>Filetype Specific Files</li>
+    </ul>
+	</div></section>
+	<section class="slide shout"><div>
+		<h2>SnipMate</h2>
+	</div></section>
+	<section class="slide"><div>
+    <h2>ctrl-p</h2>
+    <ul>
+      <li>Fuzzy Finder</li>
+      <li>Files, buffers, MRU</li>
+    </ul>
+	</div></section>
+	<section class="slide shout"><div>
+		<h2>Ctrl-P</h2>
+	</div></section>
+	<section class="slide"><div>
+    <h2>Syntastic</h2>
+    <ul>
+      <li>Syntax Checker</li>
+      <li>Plugin Based</li>
+      <li>Many Languages Supported</li>
+    </ul>
+	</div></section>
+	<section class="slide shout"><div>
+		<h2>Synastic Demo!!</h2>
+	</div></section>
+	<section class="slide"><div>
+		<h2>The VIM MD Workflow</h2>
+    <ul>
+      <li>Tools</li>
+      <li>Plugin</li>
+    </ul>
+	</div></section>
+	<section class="slide shout"><div>
+		<h2>Ugh... Markdown...</h2>
+	</div></section>
+	<section class="slide"><div>
+    <h2>Lets talk tooling</h2>
+    <ul>
+      <li>Preview</li>
+      <li>Transcode</li>
+      <li>Outline</li>
+    </ul>
+	</div></section>
+	<section class="slide"><div>
+    <h2>Marked</h2>
+    <ul>
+      <li class="next">Live Preview</li>
+      <li class="next">Custom Templates</li>
+      <li class="next">GFM</li>
+      <li class="next">Custom Parsers</li>
+    </ul>
+	</div></section>
+	<section class="slide shout"><div>
+    <h2>Marked</h2>
+	</div></section>
+	<section class="slide"><div>
+    <h2>Pandoc</h2>
+    <ul>
+      <li class="next">Convert all the things!</li>
+      <li class="next">Create epubs</li>
+      <li class="next">Convert to MD</li>
+    </ul>
+	</div></section>
+	<section class="slide shout"><div>
+		<h2>Pandoc</h2>
+	</div></section>
+	<section class="slide"><div>
+    <h2>VOoM</h2>
+    <ul>
+      <li class="next">Outline Tree View</li>
+      <li class="next">Move Sections</li>
+      <li class="next">Visualize Document</li>
+    </ul>
+	</div></section>
+	<section class="slide shout"><div>
+		<h2>VOoM</h2>
+	</div></section>
+	<section class="slide cover" id="End">
+		<h2>Thanks!</h2>
+		<p>James Morrin @treasonx</p>
+		<img src="pictures/profile.jpg" alt="">
+    <p>For more info on using the mouse with VIM: http://github.com/treasonx/environment</p>
+		<!--
+			To apply styles to the certain slides
+			set slide ID to get needed elements
+			-->
+		<style>
+      #End img {
+        border-radius: 100px;
+        width: 200px;
+        margin: 20px auto 0 auto;
+        display: block;
+        position: static;
+      }
+			#End h2 {
+				margin:30px 0 0;
+				color:#FFF;
+				text-align:center;
+				font-size:70px;
+				}
+			#End p {
+				margin:10px 0 0;
+				text-align:center;
+				color:#FFF;
+				font-style:italic;
+				font-size:20px;
+				}
+				#End p a {
+					color:#FFF;
+					}
+		</style>
+	</section>
+
+
+	<!--
+		To hide progress bar from entire presentation
+		just remove “progress” element.
+	<div class="progress"><div></div></div>
+		-->
+	<script src="shower/shower.min.js"></script>
+	<!-- Copyright © 2013 Yours Truly, Famous Inc. -->
+	<!-- Photos by John Carey, fiftyfootshadows.net -->
+</body>
+</html>
